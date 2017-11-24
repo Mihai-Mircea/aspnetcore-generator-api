@@ -8,6 +8,7 @@ services:
             - teamcity-server-logs:/opt/teamcity/logs
         ports:
             - 8111:8111
+        restart: unless-stopped
     teamcity-agent:
         image: aspnetcore/teamcity-agent-with-compose:2017.1.2
         build: ./agent
@@ -15,7 +16,7 @@ services:
             SERVER_URL: http://teamcity:8111
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
-
+        restart: unless-stopped
 
 volumes:
     teamcity-server-datadir:
