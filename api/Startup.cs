@@ -17,7 +17,7 @@ namespace api
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = configuration; 
         }
 
         public IConfiguration Configuration { get; }
@@ -30,7 +30,7 @@ namespace api
                 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "Mihai: Generate Random Data API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "Mihai the Great: Generate Random Data API", Version = "v1" });
             });
 
             services.Configure<MailServerConfig>(Configuration.GetSection("mailserver"));
